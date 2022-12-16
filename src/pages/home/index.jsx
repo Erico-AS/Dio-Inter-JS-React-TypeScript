@@ -2,8 +2,15 @@ import { Button } from '../../components/Button';
 import { Header } from "../../components/Header";
 import { Container, TextContent, Title, TitleHighlight } from "./styles"
 import Banner from "../../assets/b.png"
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
+
+    const navigate = useNavigate()
+
+    const handleClickSingIn = () => {
+        navigate('/login')
+    }
     return (<>
         <Header>Home</Header>
         <Container>
@@ -19,6 +26,8 @@ const Home = () => {
                     Domine as tecnologias ultilizadas pelas empresas mais inovadoras do mundo e
                     encare seu novo desafio profissional, evoluindo em comunidade com os melhores experts.
                 </TextContent>
+
+                <Button title='Comece agora' variant='secondary' onClick={handleClickSingIn}/>
             </div>
 
             <div>

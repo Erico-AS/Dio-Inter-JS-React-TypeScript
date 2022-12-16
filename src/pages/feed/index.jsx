@@ -5,7 +5,7 @@ import { UserInfo } from "../../components/UserInfo";
 
 const Feed = () => {
     return (<>
-        <Header>Home</Header>
+        <Header autenticado={true}>Home</Header>
         <Container >
             <Column flex={3}> 
                 <Title>Feed</Title>
