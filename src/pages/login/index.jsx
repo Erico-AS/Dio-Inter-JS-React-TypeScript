@@ -7,22 +7,25 @@ import { MdEmail, MdLock } from "react-icons/md"
 import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form";
 
-import { api } from "../../services/api.js"
+import { api } from "../../services/api"
+
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 const schema = yup.object({
     email: yup.string().email('Email não válido').required(), 
-    passwword: yup.string().min(3, 'No mínimo 3 caracteres').required(), 
+    password: yup.string().min(3, 'No mínimo 3 caracteres').required(), 
   }).required() 
 
 
 const Login = () => {
+
+    const navigate = useNavigate()
     
     const { control, handleSubmit, formState: { errors, isValid } } = useForm({
         resolver: yupResolver(schema),
-        mode: 'onchange',
+        mode: 'onChange',
     });
 
 
@@ -41,7 +44,6 @@ const Login = () => {
 
     console.log(isValid)
 
-    const navigate = useNavigate()
 
     return (<>
         <Header />
@@ -57,9 +59,9 @@ const Login = () => {
                 <Wrapper>
                     <TitleLogin>Faça seu cadastro</TitleLogin>
                     <SubtitleLogin>Faça seu login e make the change</SubtitleLogin>
-                    <form onSubmit={handleSubmit[onSubmit]}>
-                        <Input control={control} name='email' errorMessage={errors?.email?.message} placeholder='E-mail' leftIcon={<MdEmail/>}/>
-                        <Input control={control} name='password' errorMessage={errors?.passwword?.message} placeholder='Senha' type='password' leftIcon={<MdLock/>}/>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Input name='email' errorMessage={errors?.email?.message} control={control}  placeholder='E-mail' type='text' leftIcon={<MdEmail/>}/>
+                        <Input name='password' errorMessage={errors?.password?.message} control={control} placeholder='Senha' type='password' leftIcon={<MdLock/>}/>
                         <Button title='Entrar' variant="secondary" type='submit' />
                     </form>
                     <Row>

@@ -3,7 +3,7 @@ import { InputText, InputContainer, IconContainer, ErrorText } from "./styles";
 
 import { Controller } from "react-hook-form";
 
-const Input = ({leftIcon, control, name, errorMessage, ...rest}) => {
+export const Input = ({leftIcon, control, name, errorMessage, ...rest}) => {
     return (
     <>
         <InputContainer>
@@ -15,8 +15,6 @@ const Input = ({leftIcon, control, name, errorMessage, ...rest}) => {
             render={({ field }) => <InputText {...field} {...rest}/>}
             />
         </InputContainer>
-        {errorMessage ? <ErrorText>{errorMessage}</ErrorText> : null}
+        {errorMessage ? <ErrorText> { errorMessage } </ErrorText> : null}
     </>)
 } 
-
-export {Input}
