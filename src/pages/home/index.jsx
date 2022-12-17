@@ -11,6 +11,7 @@ const Home = () => {
     const handleClickSingIn = () => {
         navigate('/login')
     }
+    
     return (<>
         <Header>Home</Header>
         <Container>

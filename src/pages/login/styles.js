@@ -59,7 +59,7 @@ export const CriarText = styled.p`
     font-size: 14px;
     line-height: 19px;
 
-    color: #e5e044;
+    color: #e41050;
 `
 
 export const Wrapper = styled.div`
