@@ -10,8 +10,9 @@ import { BuscarInputContainer,
     UserPicture,
     Wrapper
 } from "./styles";
+import { IHeader } from "./types";
 
-const Header = ({autenticado}) => {
+const Header = ({autenticado}: IHeader) => {
     return (
         <Wrapper>
             <Container>
@@ -31,7 +32,7 @@ const Header = ({autenticado}) => {
                     <UserPicture src="https://avatars.githubusercontent.com/u/67467324?v=4" /> :
                     <>
                         <MenuRight href="/">Home</MenuRight>
-                        <Button title='Entrar'/>
+                        <Button title='Entrar' />
                         <Button title='Cadastrar'/>
                     </>}
                 </Row>

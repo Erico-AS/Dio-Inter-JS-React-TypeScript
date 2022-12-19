@@ -13,6 +13,8 @@ import { api } from "../../services/api"
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
+import { ILogin } from "./types"
+
 const schema = yup.object({
     email: yup.string().email('Email não válido').required(), 
     password: yup.string().min(3, 'No mínimo 3 caracteres').required(), 
@@ -23,13 +25,13 @@ const Login = () => {
 
     const navigate = useNavigate()
     
-    const { control, handleSubmit, formState: { errors, isValid } } = useForm({
+    const { control, handleSubmit, formState: { errors, isValid } } = useForm<ILogin>({
         resolver: yupResolver(schema),
         mode: 'onChange',
     });
 
 
-    const onSubmit = async formData => {
+    const onSubmit = async (formData: ILogin )=> {
         try {
             const { data } = await api.get(`users?email=${formData.email}&senha=${formData.password}`)
             if(data.length === 1) {

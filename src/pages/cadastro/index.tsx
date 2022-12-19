@@ -4,6 +4,6 @@ import {} from "./styles"
 
 export default function Cadastro() {
   return (
-    <Header>index</Header>
+    <Header/>
   )
 }

@@ -13,7 +13,7 @@ const Home = () => {
     }
     
     return (<>
-        <Header>Home</Header>
+        <Header/>
         <Container>
             <div>
                 <Title>
