@@ -8,13 +8,13 @@ export const Input = ({leftIcon, control, name, errorMessage, ...rest}: IInput) 
     return (
     <>
         <InputContainer>
-            {leftIcon ? <IconContainer>{leftIcon}</IconContainer> : null}
-            <Controller 
+            {leftIcon ? <IconContainer> {leftIcon} </IconContainer> : null}
+            {control ? <Controller 
             name={name}
             control={control}
             rules={{ required: true }}
             render={({ field }) => <InputText {...field} {...rest}/>}
-            />
+            /> : <InputText {...rest} /> }
         </InputContainer>
         {errorMessage ? <ErrorText> { errorMessage } </ErrorText> : null}
     </>)
